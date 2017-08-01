@@ -17,7 +17,7 @@ body
 
 header
 	height: 29px
-	@include border(1px, #111, 'bottom')
+	@include border(1px, #cacaca, 'bottom')
 .navbar-default
 	background-color: #fff
 	background-image: none
@@ -39,15 +39,28 @@ header
 	background-image: none
 	box-shadow: none
 	background-color: #fff!important
-.dropdown-menu > li > a
-	font-size: 12px
-.navbar-nav > li > .dropdown-menu.openwindow
+.dropdown-menu
+	z-index: 1 
+	left: -1px
+	&> li > a
+		font-size: 12px
+.navbar-nav > li > .dropdown-menu
 	max-width: 600px
 	min-width: 320px
-	border: 0
-	padding: 15px
-	margin-top: 1px
-.navbar-nav .dropdown.open
-	@include bsh(0, 6px, 18px, -5px, #666)
+	border-top: 0
+	margin-top: 0
 	@include border(1px, #cacaca, 'right-left')
+	@include border(1px, #cacaca, 'bottom')
+	@include bsh(3px, 0, 18px, -5px, #666)
+.navbar-nav .dropdown-menu ul
+	list-style: none
+	padding: 15px
+.navbar-nav .dropdown.open
+	@include bsh(1px, -3px, 23px, -5px, #666)
+	@include border(1px, #cacaca, 'right-left')
+.navbar-right .dropdown-menu
+	right: -1px	
+.navbar-nav .dropdown a.dropdown-toggle
+	z-index: 2
+	position: relative
 @import "media" 
