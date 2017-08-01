@@ -8,16 +8,27 @@ html, body
 	padding: 0
 	margin: 0
 body
-	font-size: 16px
+	font-size: 12px
 	min-width: 320px
 	position: relative
 	line-height: 16px
 	font-family: $default-font
 	overflow-x: hidden
-
+.container
+	max-width: 800px
+	& .left-col, .right-col
+		padding: 28px 4px
+	& .col-sm-4 /* потом удалить */
+		@include border(1px, #cacaca, 'left')
+		@include border(1px, #cacaca, 'bottom')
+	& .col-sm-8 /* потом удалить */
+		@include border(1px, #cacaca, 'right-left')
+		@include border(1px, #cacaca, 'bottom')
 header
 	height: 29px
 	@include border(1px, #cacaca, 'bottom')
+	.container
+		border: 0
 .navbar-default
 	background-color: #fff
 	background-image: none
@@ -55,6 +66,7 @@ header
 .navbar-nav .dropdown-menu ul
 	list-style: none
 	padding: 15px
+	font-size: 12px
 .navbar-nav .dropdown.open
 	@include bsh(1px, -3px, 23px, -5px, #666)
 	@include border(1px, #cacaca, 'right-left')
@@ -63,4 +75,57 @@ header
 .navbar-nav .dropdown a.dropdown-toggle
 	z-index: 2
 	position: relative
+
+.logo
+	& img
+		@include border-radius(2px, all)
+.login-box
+	@include border(1px, #cacaca, 'all')
+	size: 227px 150px
+	margin-top: 28px
+	padding: 14px 8px
+	& h4.header
+		float: left
+	& .fa
+		float: left
+		font-size: 14px
+		margin-right: 8px
+	& .fa-sign-out
+		float: right
+		margin: 0
+	@include border-radius(2px, all)
+.loginRegister 
+	position: relative
+	.logout-button
+		position: absolute
+		right: 0
+		top: 7px
+	.dropdown
+		float: left
+	.fa-sign-out 
+		position: absolute
+		top: -19px
+		right: 0
+		font-size: 14px
+	span
+		position: relative
+		top: 7px
+	.login-email b
+		border-bottom: 1px dotted #a7aab2
+
+		&:hover
+			color: #ffa930
+a:hover, a:focus
+	text-decoration: none
+.loginLoginForm .loginLoginFieldset
+	position: relative
+	display: inline-block
+	margin-top: 14px
+	& .loginPasswordLabel
+		width: 148px
+.forg
+	.right
+		margin-left: 18px
+	.left
+		margin-right: 18px
 @import "media" 
