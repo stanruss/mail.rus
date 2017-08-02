@@ -13,17 +13,19 @@ body
 	position: relative
 	line-height: 16px
 	font-family: $default-font
-	overflow-x: hidden
-.container
-	max-width: 800px
+	
+.container-left-col, .container-menu
+	width: 800px
+	@include padding(15px, 'right-left')
+	@include push-auto
 	& .left-col, .right-col
 		padding: 28px 4px
-	& .col-sm-4 /* потом удалить */
-		@include border(1px, #cacaca, 'left')
-		@include border(1px, #cacaca, 'bottom')
-	& .col-sm-8 /* потом удалить */
-		@include border(1px, #cacaca, 'right-left')
-		@include border(1px, #cacaca, 'bottom')
+	.left-col
+		width: 35%
+		float: left
+	.right-col
+		width: 65%
+	
 header
 	height: 29px
 	@include border(1px, #cacaca, 'bottom')
@@ -34,9 +36,11 @@ header
 	background-image: none
 	border-radius: 0
 	box-shadow: none
-.navbar-nav > li > a
-	padding: 4px 9px	
-	font-size: 12px
+.navbar-nav 
+	margin-left: -20px
+	& > li > a
+		padding: 4px 9px	
+		font-size: 12px
 .navbar-header
 	height: 28px
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
