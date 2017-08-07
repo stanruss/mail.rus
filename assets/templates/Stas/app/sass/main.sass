@@ -13,63 +13,68 @@ body
 	position: relative
 	line-height: 16px
 	font-family: $default-font
-.container
-	min-width: 1000px	
-header.main
-	position: relative
-	width: 100%
-	height: $margintopmain
-	@include border(1px,$tgrey, bottom)
-	.nav-top
-		padding-left: 0
-		li
-			list-style: none
-			&.dropdown
-				position: absolute
-				top: 0
-				left: 320px
-				margin-left: 18px
-				& > .dropdown-menu
-					position: absolute
-					width: 320px
-					top: 25px
-					left: -1px
-					border-radius: 0 0 3px 3px
-					border-top: 0
-					@include bsh(1px, 3px, 12px, 0, #cacaca)
-					a
-						width: 100%
-					.divider
-						margin-bottom: 0
-						width: 100%
-				&.open
-					@include border(1px, #cacaca, right-left)
-					@include bsh(0px, 1px, 12px, 0, #cacaca)
-					.dropdown-toggle
-						padding-left: 27px
 
-		a
-			float: left
-			padding-left: $margintopmain
-			line-height: $margintopmain
-			text-decoration: none
+header
+	height: 29px
+	@include border(1px, #cacaca, 'bottom')
+.navbar-default
+	background-color: #fff
+	background-image: none
+	border-radius: 0
+	box-shadow: none
+.navbar-nav > li > a
+	padding: 4px 9px	
+	font-size: 12px
+.navbar-header
+	height: 28px
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+	background-image: none
+	box-shadow: none
+	background-color: #fff
+	font-weight: bold
+.navbar-nav .dropdown a.dropdown-toggle:hover
+	color: #ffa930
+.navbar-nav .dropdown a.dropdown-toggle
+	background-image: none
+	box-shadow: none
+	background-color: #fff!important
+.dropdown-menu
+	z-index: 1 
+	left: -1px
+	&> li > a
+		font-size: 12px
+.navbar-nav > li > .dropdown-menu
+	max-width: 600px
+	min-width: 320px
+	border-top: 0
+	margin-top: 0
+	@include border(1px, #cacaca, 'right-left')
+	@include border(1px, #cacaca, 'bottom')
+	@include bsh(3px, 0, 18px, -5px, #666)
+.navbar-nav .dropdown-menu ul
+	list-style: none
+	padding: 15px
+.navbar-nav .dropdown.open
+	@include bsh(1px, -3px, 23px, -5px, #666)
+	@include border(1px, #cacaca, 'right-left')
+.navbar-right .dropdown-menu
+	right: -1px	
+.navbar-nav .dropdown a.dropdown-toggle
+	z-index: 2
+	position: relative
 section
 	padding: $mainpadding*1.5 $mainpadding
 	position: relative
 	&.left-col
-		width: $leftwidth
-		float: left
 		padding-top: 0
 		margin-right: 18px
 		.logo 
 			@include push-auto
-			width: 227px
+			width: $logowidth
 			margin-top: $margintopmain
 			img
 				@include border-radius($mainbr, 'all')
 	&.right-col
-		width: $rightwidth
-		float: right
 		padding-top: 0
 		padding-top: $margintopmain
 	.login-box
@@ -120,10 +125,12 @@ section
 	&::after
 		@include pseudo(block, absolute, '|')
 		min-height: 20px
-		width: 3px
+		width: 0px
 		color: #111
 		z-index: 9999
 		right: 60px
+		margin: 0 5px
+
 		
 
 .loginRegister 
@@ -145,7 +152,7 @@ section
 		padding: $mainpadding $mainpadding*2
 	.btn-sm, .btn-group-sm > .btn
 		@include border-radius($mainbr, 'all')
-		padding: $mainpadding/2 $mainpadding+4
+		padding: $mainpadding/2 $mainpadding
 	.left
 		margin-right: $mainpadding*2
 	.right
@@ -160,5 +167,9 @@ section
 			right: 6px
 			bottom: 9px
 		@include border-radius($mainbr, 'all')
-
+.sisea-search-form
+	.form-control
+		z-index: 0
+	.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group
+		z-index: 0
 @import "media" 
