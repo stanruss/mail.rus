@@ -187,6 +187,15 @@ td,
 th {
   padding: 0;
 }
+.text-center{
+  text-align:center;
+}
+.text-right{
+  text-align:right;
+}
+.text-left{
+  text-align:left;
+}
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,

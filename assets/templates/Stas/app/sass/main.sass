@@ -15,14 +15,52 @@ body
 	font-family: $default-font
 .container
 	min-width: 1000px	
+header.main
+	position: relative
+	width: 100%
+	height: $margintopmain
+	@include border(1px,$tgrey, bottom)
+	.nav-top
+		padding-left: 0
+		li
+			list-style: none
+			&.dropdown
+				position: absolute
+				top: 0
+				left: 320px
+				margin-left: 18px
+				& > .dropdown-menu
+					position: absolute
+					width: 320px
+					top: 25px
+					left: -1px
+					border-radius: 0 0 3px 3px
+					border-top: 0
+					@include bsh(1px, 3px, 12px, 0, #cacaca)
+					a
+						width: 100%
+					.divider
+						margin-bottom: 0
+						width: 100%
+				&.open
+					@include border(1px, #cacaca, right-left)
+					@include bsh(0px, 1px, 12px, 0, #cacaca)
+					.dropdown-toggle
+						padding-left: 27px
+
+		a
+			float: left
+			padding-left: $margintopmain
+			line-height: $margintopmain
+			text-decoration: none
 section
 	padding: $mainpadding*1.5 $mainpadding
 	position: relative
 	&.left-col
-		@include border(1px, #cacaca, 'all')
 		width: $leftwidth
 		float: left
 		padding-top: 0
+		margin-right: 18px
 		.logo 
 			@include push-auto
 			width: 227px
@@ -30,8 +68,6 @@ section
 			img
 				@include border-radius($mainbr, 'all')
 	&.right-col
-		@include border(1px, #cacaca, 'all')
-		border-left: 0
 		width: $rightwidth
 		float: right
 		padding-top: 0
@@ -65,7 +101,7 @@ section
 				width: 150px
 				margin-top: 3px
 				a
-					font-size: 10px
+					font-size: 12px
 					display: block
 					line-height: 18px
 					@include padding($mainpadding, 'right-left')
@@ -76,6 +112,10 @@ section
 	70%
 		transform: scale(1)
 		border-radius: 0 0 0 0 
+.search-span
+	font-size: 18px
+	margin-bottom: 9px
+	display: block
 .vdivider 
 	&::after
 		@include pseudo(block, absolute, '|')
@@ -112,5 +152,13 @@ section
 		margin-left: $mainpadding*2
 .logout-button a
 	margin-left: 2px
+.lorem-text
+	padding-top: 9px
+	img
+		float: left
+		margin: 
+			right: 6px
+			bottom: 9px
+		@include border-radius($mainbr, 'all')
 
 @import "media" 
