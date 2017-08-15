@@ -4,172 +4,133 @@
 @import "mixins/mixin"
 
 html, body
-	height: 100%
-	padding: 0
-	margin: 0
+	
 body
 	font-size: 13px
 	min-width: 320px
 	position: relative
 	line-height: 16px
 	font-family: $default-font
-
-header
-	height: 29px
-	@include border(1px, #cacaca, 'bottom')
-.navbar-default
-	background-color: #fff
-	background-image: none
-	border-radius: 0
-	box-shadow: none
-.navbar-nav > li > a
-	padding: 4px 9px	
-	font-size: 12px
-.navbar-header
-	height: 28px
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
-	background-image: none
-	box-shadow: none
-	background-color: #fff
-	font-weight: bold
-.navbar-nav .dropdown a.dropdown-toggle:hover
-	color: #ffa930
-.navbar-nav .dropdown a.dropdown-toggle
-	background-image: none
-	box-shadow: none
-	background-color: #fff!important
-.dropdown-menu
-	z-index: 1 
-	left: -1px
-	&> li > a
-		font-size: 12px
-.navbar-nav > li > .dropdown-menu
-	max-width: 600px
-	min-width: 320px
-	border-top: 0
-	margin-top: 0
-	@include border(1px, #cacaca, 'right-left')
-	@include border(1px, #cacaca, 'bottom')
-	@include bsh(3px, 0, 18px, -5px, #666)
-.navbar-nav .dropdown-menu ul
-	list-style: none
-	padding: 15px
-.navbar-nav .dropdown.open
-	@include bsh(1px, -3px, 23px, -5px, #666)
-	@include border(1px, #cacaca, 'right-left')
-.navbar-right .dropdown-menu
-	right: -1px	
-.navbar-nav .dropdown a.dropdown-toggle
-	z-index: 2
-	position: relative
+	width: 100%
 section
-	padding: $mainpadding*1.5 $mainpadding
-	position: relative
-	&.left-col
-		padding-top: 0
-		margin-right: 18px
-		.logo 
-			@include push-auto
-			width: $logowidth
-			margin-top: $margintopmain
-			img
-				@include border-radius($mainbr, 'all')
-	&.right-col
-		padding-top: 0
-		padding-top: $margintopmain
-	.login-box
+	width: 1000px
+	+push-auto	
+	&.padding-section
+		top: $menuheight/2
 		position: relative
-		margin-top: $margintopmain
-		width: $logowidth
-		height: $logowidth/1.5		
-		padding: $mainpadding*1.5 $mainpadding
-		@include push-auto
-		@include border(1px, #cacaca, 'all')
-		@include border-radius($mainbr, 'all')
-		.fa
-			font-size: 16px
-			float: left
-			margin-right: $mainpadding
-		.photo
-			position: relative
-			width: 45px
-			height: 45px
-			img
-				display: block
-				float: left
-				margin-top: $margintopmain/1.5
-				animation: animlogo 5s ease normal
-			.links
-				position: absolute
-				left: 60px
-				top: 50%
-				width: 150px
-				margin-top: 3px
-				a
-					font-size: 12px
-					display: block
-					line-height: 18px
-					@include padding($mainpadding, 'right-left')
-@keyframes animlogo
-	0%
-		transform: scale(0) 
-		border-radius: 10em	
-	70%
-		transform: scale(1)
-		border-radius: 0 0 0 0 
-.search-span
-	font-size: 18px
-	margin-bottom: 9px
-	display: block
-.vdivider 
-	&::after
-		@include pseudo(block, absolute, '|')
-		min-height: 20px
-		width: 0px
-		color: #111
-		z-index: 9999
-		right: 60px
-		margin: 0 5px
-
+.main-header
+	height: $menuheight
+	+grad-l(lighten(#000, 0%), lighten(#000, 30%))
+	color: darken(#fff, 5%) lighten(#000, 25%)
+.navbar-fixed-top
+	.container-header
+		height: $menuheight/2
+		line-height: $menuheight/2
+	.navbar-header
+		height: $menuheight/2
+.main-header.navbar-fixed-top
+	height: $menuheight/2
+			
+			
+.container-header
+	height: $menuheight
+	width: 1000px
+	color: darken(#fff, 5%) lighten(#000, 25%)
+	+grad-l(lighten(#000, 0%), lighten(#000, 30%))
+	+push-auto
+	+padding($menuheight/2, right-left)
+	text-align: center
+	line-height: $menuheight
+.navbar-header
+	height: $menuheight
+	float: left
+	padding-left: $menuheight
+	ul
+		margin-bottom: 0
+	li
+		display: inline-block
+		margin-right: $menuheight
+	a
+		color: darken(#fff, 5%)
+.logo
+	float: left
+	margin-right: $menuheight*2
+.dropdown-menu
+	border: 0 
+	line-height: $menuheight/2
+	li
+		width: 100%
+		+border(1px,#333,bottom)
+.dropdown
+	a
+		text-decoration: none
+.open
+	color: lighten(#000, 25%) darken(#fff, 5%) 
+	a
+		text-decoration: none
+		color: lighten(#000, 25%)
+		&:hover, a:focus
+			text-decoration: none
+			color: lighten(#000, 25%)
+	> ul
+		background-color: darken(#fff, 5%)
+		+border-radius (0, right-left-top)
+		margin-top: 0
+		+bsh(0,17px,17px,-17px,#111)
+.phone
+	float: right
+.left-col, .right-col
+	+border(1px,#111,all)
+.left-col
+	width: $left-col-width
+	float: left
+	+padding($menuheight/2, all)
+.right-col
+	width: $right-col-width
+	float: right
+	padding: $menuheight/2 $menuheight/2 $menuheight/2 0
+	border-left: 0
+.Login-main
+	width: $left-col-width -$menuheight
+	height: $left-col-width/2.2
+	margin-top: $menuheight/2
+	+border(1px, #111,all)
+	+border-radius($mainbrs, all)
+	+padding(14px, all)
+	.loginLoginFieldset
 		
-
-.loginRegister 
-	& .dropdown
-		float: left 
-		margin-right: $mainpadding
-.loginLogin .loginLoginForm
-	margin-top: $mainpadding*2
-	.loginPasswordLabel
-		width: $rightwidth/1.1+1
-		margin-right: $mainpadding/2+1
-	.form-control
-		height: $margintopmain
-		@include border-radius($mainbr, 'all')
-		border-color: #cacaca
-		&:focus
-			border-color: #cacaca
-	input
-		padding: $mainpadding $mainpadding*2
-	.btn-sm, .btn-group-sm > .btn
-		@include border-radius($mainbr, 'all')
-		padding: $mainpadding/2 $mainpadding
-	.left
-		margin-right: $mainpadding*2
-	.right
-		margin-left: $mainpadding*2
-.logout-button a
-	margin-left: 2px
-.lorem-text
-	padding-top: 9px
+		.loginPasswordLabel
+			width: $left-col-width/2.2
+			float: left
+		.loginLoginButton
+			float: right
+			line-height: 34px
+		label
+			display: block
+.loginRegister .open
+	padding-right: 7px 
+	& > ul
+		font-size: 12px
+		+border-radius($mainbrs,right-left-bottom)
+.left
+	margin-right: $menuheight/4
+.right
+	float: right
+.butt
+	li
+		display: inline-block
+		&.logout-button
+			float: right
+.photo
+	margin-top: $menuheight/5
 	img
 		float: left
-		margin: 
-			right: 6px
-			bottom: 9px
-		@include border-radius($mainbr, 'all')
-.sisea-search-form
-	.form-control
-		z-index: 0
-	.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group
-		z-index: 0
+	.fa
+		margin: $menuheight/20 $menuheight/10 $menuheight/20 0
+		font-size: 15px
+.links
+	float: right
+	width: $left-col-width/2
+	a
+		display: block
 @import "media" 

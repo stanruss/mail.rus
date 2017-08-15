@@ -24,14 +24,22 @@ $(window).scroll(function() {
 (function(){
   $(window).scroll(function () {
       var top = $(document).scrollTop();
-      $('.splash').css({
-        'background-position': '0px -'+(top/3).toFixed(2)+'px'
-      });
-      if(top > 50)
-        $('#home > .navbar').removeClass('navbar-transparent');
+      
+      if(top > 20)
+        $('.main-header').addClass('navbar-fixed-top animated fadeInDown');
       else
-        $('#home > .navbar').addClass('navbar-transparent');
+        $('.main-header').removeClass('navbar-fixed-top animated fadeInDown');
   });
+  $(window).scroll(function () {
+      var top = $(document).scrollTop();
+      
+      if(top > 20)
+        $('section').addClass('padding-section');
+      else
+        $('section').removeClass('padding-section');
+  });
+  
+  
 
   $("a[href='#']").click(function(e) {
     e.preventDefault();

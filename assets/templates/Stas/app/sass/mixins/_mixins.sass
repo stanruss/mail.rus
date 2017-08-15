@@ -1,4 +1,4 @@
-@mixin border($size, $color, $position)
+=border($size, $color, $position)
 	@if $position == 'all'
 		border: $size solid $color
 	@else if $position == 'top'
@@ -15,7 +15,7 @@
 	@else if $position == 'top-bottom'
 		border-top: $size solid $color
 		border-bottom: $size solid $color
-@mixin margin($size, $position)
+=margin($size, $position)
 	@if $position == 'all'
 		margin: $size
 	@else if $position == 'top'
@@ -32,7 +32,7 @@
 	@else if $position == 'top-bottom'
 		margin-top: $size
 		margin-bottom: $size
-@mixin padding($size, $position)
+=padding($size, $position)
 	@if $position == 'all'
 		padding: $size
 	@else if $position == 'top'
@@ -49,20 +49,20 @@
 	@else if $position == 'top-bottom'
 		padding-top: $size
 		padding-bottom: $size
-@mixin transform-rotate ($rot)
+=transform-rotate ($rot)
 	transform: rotate($rot) //браузеры без префексов
 	-webkit-transform: rotate($rot) //Chrome, Safari
 	-moz-transform: rotate($rot) //Firefox
 	-o-transform: rotate($rot) //Opera
 	-ms-transform: rotate($rot) //IE
-@mixin transform-scale ($scl)
+=transform-scale ($scl)
 	transform: scale($scl) //браузеры без префексов
 	-webkit-transform: scale($scl) //Chrome, Safari
 	-moz-transform: scale($scl) //Firefox
 	-o-transform: scale($scl) //Opera
 	-ms-transform: scale($scl) //IE	
 
-@mixin border-radius($br, $position)
+=border-radius($br, $position)
 	@if $position == 'all'
 		border-radius: $br
 		-webkit-border-radius: $br
@@ -106,15 +106,16 @@
 	-ms-transition: $what $when $how
 	-o-transition: $what $when $how
 	transition: $what $when $how
-@mixin pseudo($display: block, $pos: absolute, $content: '')
+= pseudo($display: block, $pos: absolute, $content: '')
 	content: $content
 	display: $display
 	position: $pos
-@mixin push-auto 
+= push-auto 
+
 	margin: 
 	 left: auto
 	 right: auto
-@mixin responsive-ratio($x,$y, $pseudo: false) 
+=responsive-ratio($x,$y, $pseudo: false) 
 	$padding: unquote( ( $y / $x ) * 100 + '%' )
 	@if $pseudo 
 		&:before 
@@ -124,17 +125,17 @@
 	@else
 		padding-top: $padding
 
-@mixin input-placeholder($content)
+=input-placeholder($content)
 	&.placeholder $content
 	&:-moz-placeholder $content
 	&::-moz-placeholder $content
 	&:-ms-input-placeholder $content
 	&::-webkit-input-placeholder $content
-@mixin hardware($backface: true, $perspective: 1000)
+=hardware($backface: true, $perspective: 1000)
 	@if $backface
 	backface-visibility: hidden
 	perspective: $perspective
-@mixin pad ($pads...)
+=pad ($pads...)
 	padding: $pads
 // горизонтальное выравнивание для inline блока
 // пример: @include justify;
